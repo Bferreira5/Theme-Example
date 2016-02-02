@@ -1,0 +1,49 @@
+<section class="project"> 
+	{{ if hero_image:0:hero_img_src }}
+		{{ hero_image }}
+			<div class="hero-image">
+				<img src="{{ hero_img_src }}" alt="{{ alt_text }}" />
+				{{ if show_caption }} <p>{{ alt_text }}</p> {{ endif }}
+			</div>
+		{{ /hero_image }}
+	{{ endif }}
+
+	{{ project_content }}
+		{{ if type == "table_set" }}
+				{{ inline_table|table }}
+			
+		{{ elseif type == "content_set" }}
+			<article>
+			  {{ text|markdown }}
+			</article>
+
+		{{ elseif type == "headline_set" }}
+			<h1>{{ headline }}</h1>
+
+		{{ elseif type == "quote_set" }}
+			<div class="qoute_set_large">
+				<setquote>{{ quote }}</setquote>
+				<p>&mdash; {{ cite }}</p>
+			</div>
+
+		{{ elseif type == "client_stamp_set"}}  
+			<div class="client-stamp">
+				<h3>{{ job }}</h3>
+				<p><em>{{ time }}</em></p>
+				<p><strong>{{ employer }}</strong></p>
+				<p>{{ description }}</p>
+			</div>
+		{{ elseif type == "video_set" }}
+			{{ video:{{ video_provider }} src="{{ video_link }}" }} 
+
+		{{ elseif type == "image_set" }}
+			<img src="{{ photo }}" alt="{{ caption }}" />
+
+		{{ elseif type == "code_set" }}
+			<code class="code">
+				{{ code }}
+			</code>
+		
+		{{ endif }}
+	{{ /project_content }}
+</section>

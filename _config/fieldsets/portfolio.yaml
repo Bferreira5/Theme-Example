@@ -1,0 +1,24 @@
+title: Portfolio
+
+fields:
+
+  page_title:
+    type: text
+    display: Page Title in Browser
+    instructions: Optional - override the title used above for SEO purposes
+
+  meta_description:
+    type: text
+    display: Meta Description
+
+  hide_thumbnail_captions:
+    type: checkbox
+    display: Hide Thumbnail Captions?
+    default: 0
+
+  content:
+    type: hidden
+
+  _template:
+    type: hidden
+    default: portfolio

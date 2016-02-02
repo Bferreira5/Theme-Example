@@ -1,0 +1,113 @@
+<section class="event">
+
+	<article>
+		<h1>{{ title }}</h1>
+		<div>
+		{{ multidate dates='{dates}' sort_dir='desc'}}
+			<ul>
+			{{ dates }}
+				<li>{{ value }}</li>
+			{{ /dates }}
+			</ul>
+		{{ /multidate }}
+		</div>
+
+		<div class="bulletin">
+			<ul>
+				{{ opening_song }}
+				<li>
+					<strong>
+						{{ if project_info_label }}{{ project_info_label }}{{ endif }}
+					</strong> 
+					{{ if project_info_value }}{{ project_info_value }}{{ endif }}
+				</li>
+				{{ /opening_song  }}
+			</ul>
+			<h2>{{ sabbath_school1 }}</h2>
+			<h2>{{ sabbath_school2 }}</h2>
+			<h2>{{ welcome }}</h2>
+			<h2>{{ tithes }}</h2>
+			<h2>{{ children_story }}</h2>
+			<ul>
+				{{ reading }}
+				<li>
+					<strong>
+						{{ if project_info_label }}{{ project_info_label }}{{ endif }}
+					</strong> 
+					{{ if project_info_value }}{{ project_info_value }}{{ endif }}
+				</li>
+				{{ /reading  }}
+			</ul>
+			<ul>
+				{{ music }}
+				<li>
+					<strong>
+						{{ if project_info_label }}{{ project_info_label }}{{ endif }}
+					</strong> 
+					{{ if project_info_value }}{{ project_info_value }}{{ endif }}
+				</li>
+				{{ /music  }}
+			</ul>
+			<h1>{{ sermon_title }}</h1>
+			<h3>{{ sermon_speaker }}</h3>
+			<ul>
+				{{ closing_song }}
+				<li>
+					<strong>
+						{{ if project_info_label }}{{ project_info_label }}{{ endif }}
+					</strong> 
+					{{ if project_info_value }}{{ project_info_value }}{{ endif }}
+				</li>
+				{{ /closing_song }}
+			</ul>
+		</div>
+	</article>
+	
+	<aside>
+		{{ announcements_replicator }}
+
+			{{ if type == "table_set" }}
+
+				<div class="table-minimal">
+					{{ inline_table|table }}
+				</div>
+
+			{{ elseif type == "content_set" }}
+
+				<div class="text">
+				  {{ text|markdown }}
+				</div>
+
+			{{ elseif type == "headline_set" }}
+
+				<h2>{{ headline }}</h2>
+
+			{{ elseif type == "quote_set" }}
+
+				<setquote>{{ quote }}</setquote>
+				<p>&mdash; {{ cite }}</p>
+
+			{{ elseif type == "announcements_set"}}  
+
+			<h3>{{ job }}</h3>
+			<p><em>{{ time }}</em></p>
+			<p><strong>{{ location }}</strong></p>
+			<p>{{ description }}</p>
+
+			{{ elseif type == "image_set" }}
+
+			<figure>
+				<img src="{{ photo }}" alt="{{ caption }}" />
+				<figcaption>{{ caption }}</figcaption>
+			</figure>
+
+			{{ elseif type == "video_set" }}
+				<div class="video">
+					{{ video }}
+				</div>
+			
+			{{ endif }}
+
+		{{ /announcements_replicator }}
+	</aside>
+</section>

@@ -1,0 +1,211 @@
+<section class="story-page">
+	<div class="grid-items ">
+
+		{{ front_page_replicator }}
+
+			{{ if type == "grid_full" }}
+
+				<!-- Grid Full -->
+				<div style="background-image: url('{{ background }}')" class="grid-item grid-item-full {{ styled }}">
+					<div class="copy-box {{ if styled == "tape" }} no-background {{ endif }}">
+						<div class="copy-headline">
+							<h1><a href="{{ link }}">{{ headline }}</a></h1>
+						</div>
+						<div class="copy-detail">
+							<div class="copy-content">
+								<p>{{ description }}</p>
+							</div>
+							{{ if cta-text }}
+							<div class="copy-cta">
+								<div class="cta-image">
+									 <img src="{{ ornament }}" alt="{{ ornament_alt }}"/>
+								</div>
+								<div class="cta-content">
+									<p>{{ cta-text }}</p>
+								</div>
+								<div class="cta-link">
+									<a class="common-button" href="{{ link }}">{{ linktext }}</a>
+								</div>
+							</div>
+							{{ endif }}
+						</div>
+					</div>
+				</div>
+				<!-- Grid Full end -->
+
+			{{ elseif type == "grid_over" }}
+
+				<!-- Grid Over -->
+				<div style="background-image: url('{{ background }}')" class="grid-item grid-item-over {{ styled }}">
+					<div class="copy-box {{ if styled == "tape" }} no-background {{ endif }}">
+						<div class="copy-headline">
+							<h1><a href="{{ link }}">{{ headline }}</a></h1>
+						</div>
+						<div class="copy-detail">
+							<div class="copy-content">
+								<p>{{ description }}</p>
+	    						<a href="{{ link }}" class="read-more">{{ linktext }} <span>&rsaquo;</span></a>
+	    						<hr>
+							</div>	
+						</div>
+						{{ if layered-image }}
+							<div class="floating-image" >
+								<img src="{{ layered-image }}">
+							</div>
+						{{ endif }}
+					</div>
+				</div>
+				<!-- Grid over end -->
+			
+			{{ elseif type == "grid_bar" }}
+		 
+				<!-- Grid bar -->
+				<div style="background-image: url('{{ background }}')" class="grid-item  grid-item-bar {{ styled }}">
+				<div class="copy-box{{ if styled == "tape" }} no-background {{ endif }}">
+					<div class="copy-headline">
+						<h2><a href="{{ link }}">{{ headline }}</a></h2>
+					</div>
+					<div class="copy-detail">
+						<div class="copy-content">
+							<p>{{ description }}</p>
+							<hr>
+    						<a href="{{ link }}" class="read-more">{{ linktext }} <span>&rsaquo;</span></a>
+						</div>	
+					</div>
+				</div>
+					{{ if layered-image }}
+						<div class="floating-image" >
+							<img src="{{ layered-image }}">
+						</div>
+					{{ endif }}
+				</div>
+				<!-- Grid bar end -->
+		 
+
+			{{ elseif type == "grid_left" }}
+
+				<!-- Grid Left -->
+				<div class="grid-item grid-item-split {{ styled }}">
+					<div class="inside-grid-left">
+						<div class="copy-box {{ if styled == "tape" }} no-background {{ endif }}">
+							{{ if headline }}
+							<h2><a href="{{ link }}">{{ headline }}</a></h2>
+							{{ endif}}
+							{{if description }}
+							<p>{{ description }}</p>
+							<hr>
+							{{ endif}}
+							{{ if linktext }}
+							<div class="cta-link">
+								<a href="{{ link }}">{{ linktext }}</a>
+							</div>
+							{{ endif }}
+						</div>
+					</div>
+					<div class="inside-grid-right">
+						<div style="background-image: url('{{ background }}')" class="images-wrapper"></div>
+					</div>
+				</div>
+				<!-- Grid Left end -->
+
+			{{ elseif type == "grid_right" }}
+
+				<!-- Grid Right -->
+				<div class="grid-item grid-item-split {{ styled }}">
+					<div class="inside-grid-left">
+						<div style="background-image: url('{{ background }}')" class="images-wrapper"></div>
+					</div>
+					<div class="inside-grid-right">
+						<div class="copy-box">
+							{{ if headline }}
+							<h2><a href="{{ link }}">{{ headline }}</a></h2>
+							{{ endif}}
+							{{if description }}
+							<p>{{ description }}</p>
+							{{ endif}}
+							{{ if linktext }}
+							<hr>
+							<div class="cta-link">
+								<a class="common-link" href="{{ link }}">{{ linktext }}</a>
+							</div>
+							{{ endif }}
+						</div>
+					</div>
+				</div>
+				<!-- Grid Right end -->
+
+			{{ elseif type == "grid_half" }}
+
+				<!-- Grid box half -->
+				<div style="background-image: url('{{ background }}')" class="grid-item  grid-item-half {{ styled }}">
+					<div class="copy-box {{ if styled == "tape" }} no-background {{ endif }}">
+						{{ if headline }}
+						<h2><a href="{{ link }}">{{ headline }}</a></h2>
+						{{ endif }}
+						{{ if description }}
+						<p>{{ description }}</p>
+						<hr>
+						{{ endif}}
+						{{ if linktext }}
+						<a href="{{ link }}" class="read-more">{{ linktext }} <span>&rsaquo;</span></a>
+						{{ endif }}
+					</div>
+				</div>
+				<!-- Grid box half end -->
+
+			{{ elseif type == "grid_tri" }}
+
+				<!-- Grid box tri -->
+				<div class="grid-item  grid-item-tri {{ styled }}">
+					<div class="copy-box {{ if styled == "tape" }} no-background {{ endif }}">
+						<div class="copy-content">
+							<img src="{{ ornament }}" alt="{{ ornament_alt }}"/>
+							{{ if headline }}
+							<h2><a href="{{ link }}">{{ headline }}</a></h2>
+							{{ endif }}
+							{{ if description }}
+							<p>{{ description }}</p>
+							<hr>
+							{{ endif}}
+							{{ if linktext }}
+							<a href="{{ link }}" class="read-more">{{ linktext }} <span>&rsaquo;</span></a>
+							{{ endif }}
+							
+						</div>
+					</div>
+				</div>
+				<!-- Grid box tri end -->
+				
+			{{ elseif type == "map" }}
+				<!--  zone map -->
+				{{ if hide_map }}
+					<div href="javascript:void(0)" class="grid-item grid-item-bar">
+						<div id="map_canvas"></div>
+					</div>
+				<!--  map end -->
+				{{ endif }}
+
+			{{ elseif type == "content_set" }}
+				
+				<div class="grid-item grid-item-inside">
+					<div class="inside">
+						{{ text|markdown }}
+					</div>
+				</div>
+			
+			{{ elseif type == "headline_set" }}
+				
+				<div class="grid-item grid-item-inside"> 
+					<div class="inside">
+						<h1>{{ headline }}</h1>
+					</div>
+				</div>
+
+			{{ endif }}
+
+		{{ /front_page_replicator }}
+		
+	</div>
+</section>
+
+

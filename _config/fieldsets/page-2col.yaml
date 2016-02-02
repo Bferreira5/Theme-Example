@@ -1,0 +1,193 @@
+title: Two Column Page
+
+fields:
+  
+  page_title:
+    type: text
+    display: Page Title in Browser
+    instructions: Optional - override the title used above for SEO purposes
+  
+  meta_description:
+    type: text
+    display: Meta Description
+  
+  2acol_top_section:
+    type: section
+    display: First Content Section
+    instructions: Full size hero image with copy and headline.
+
+  page_2col_a_replicator:
+    type: replicator
+    instructions: |
+      Replicate a new set for each piece of content you need.
+
+    sets:
+
+      table_set:
+        display: Table
+        instructions: Add a inline table.
+        fields:
+          inline_table:
+            type: table
+            instructions: Add data here.
+
+      headline_set:
+        display: Section Title
+        instructions: Add a section title.
+        fields:
+          headline:
+            type: text
+            instructions: Headline or section title.
+
+      content_set:
+        display: Content
+        instructions: A basic block of text
+        fields:
+          text:
+            display: Text
+            type: markitup
+
+      resume_set:
+        display: Resume
+        instructions: Resume builder
+        fields:
+          job:
+            type: text
+            instructions: Job title.
+          time:
+            type: text
+            instructions: Type a date range (1989-2015).
+          employer:
+            type: text
+            instructions: Company or Person.
+          description:
+            type: textarea
+            height: 140
+            instructions: A short description.
+
+      quote_set:
+        display: Quote
+        instructions: A lovely pullquote
+        fields:
+          quote:
+            type: textarea
+            height: 40
+            instructions: What was said?
+          cite:
+            type: text
+            instructions: Who said it?
+
+      image_set:
+        display: Image
+        instructions: Showcase your adventures in a gallery
+        fields:
+          photo:
+            type: file
+            allowed: [png, jpg, gif]
+            destination: assets/img/about/
+          caption:
+            type: text
+            instructions: Describe the 
+
+      video_set:
+        display: video
+        instructions: For embedding videos or whatever else you might need, see sample code here - typeandgrids.com/reference/video.txt
+        fields:
+          video:
+            type: textarea
+            height: 40
+            instructions: What was said?
+
+  2bcol_top_section:
+    type: section
+    display: Second Content Section
+    instructions: Full size hero image with copy and headline.
+
+  page_2col_b_replicator:
+    type: replicator
+    instructions: |
+      Replicate a new set for each piece of content you need.
+
+    sets:
+
+      table_set:
+        display: Table
+        instructions: Add a inline table.
+        fields:
+          inline_table:
+            type: table
+            instructions: Add data here.
+
+      headline_set:
+        display: Section Title
+        instructions: Add a section title.
+        fields:
+          headline:
+            type: text
+            instructions: Headline or section title.
+
+      content_set:
+        display: Content
+        instructions: A basic block of text
+        fields:
+          text:
+            display: Text
+            type: markitup
+
+      resume_set:
+        display: Resume
+        instructions: Resume builder
+        fields:
+          job:
+            type: text
+            instructions: Job title.
+          time:
+            type: text
+            instructions: Type a date range (1989-2015).
+          employer:
+            type: text
+            instructions: Company or Person.
+          description:
+            type: textarea
+            height: 140
+            instructions: A short description.
+
+      quote_set:
+        display: Quote
+        instructions: A lovely pullquote
+        fields:
+          quote:
+            type: textarea
+            height: 40
+            instructions: What was said?
+          cite:
+            type: text
+            instructions: Who said it?
+
+      image_set:
+        display: Image
+        instructions: Showcase your adventures in a gallery
+        fields:
+          photo:
+            type: file
+            allowed: [png, jpg, gif]
+            destination: assets/img/about/
+          caption:
+            type: text
+            instructions: Describe the 
+
+      video_set:
+        display: video
+        instructions: For embedding videos or whatever else you might need, see sample code here - typeandgrids.com/reference/video.txt
+        fields:
+          video:
+            type: textarea
+            height: 40
+            instructions: What was said?
+
+  content:
+    type: hidden
+
+  _template:
+    type: hidden
+    default: page-2col

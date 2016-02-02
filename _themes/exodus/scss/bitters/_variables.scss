@@ -1,0 +1,86 @@
+// Typography
+///////////////////////////////////////////////////////////////////////////////
+$sans-serif: 'jaf-facitweb', sans-serif !global;
+$serif: 'jaf-lapture', serif !global;
+$serif-2: 'jaf-herb', serif !global;
+
+$base-font-family: $serif;
+$header-font-family: $sans-serif;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Colors
+$blue: #477DCA;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #DDD;
+$light-red: #FBE3E4;
+$bright-red: tomato;
+$light-yellow: #FFF6BF;
+$light-green: #E6EFC2;
+$gold: #FDC364;
+$light-gold: #E3D7C5;
+$dark: #404041;
+
+// Body Color
+$base-body-color: white;
+$base-background-color: #DDD;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$base-accent-color: $blue;
+
+// Text Link Colors
+$base-link-color: $bright-red;
+$hover-link-color: $base-accent-color;
+
+// Border color
+$base-border-color: $light-gray;
+
+// Flash Colors
+$error-color: $light-red;
+$notice-color: $light-yellow;
+$success-color: $light-green;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+
+$action-color: $blue;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// colors
+
+$color-1: #243040; // Ebony Clay
+$color-2: #9cb3a8; // Pewter
+$color-3: #ffffff; // White
+$color-4: gold; // Black
+
+// animation
+
+$animation-duration: 0.7s;
+
+
+// z-index 
+
+$content-zindex: 1;
+$layer-nav-zindex: 2;
+$nav-zindex: 3;
+$layer-content-zindex: 4;
+$trigger-zindex: 5;
+

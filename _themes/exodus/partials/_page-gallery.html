@@ -1,0 +1,36 @@
+<section class="page-gallery">
+	<div>
+		<ul>
+			{{ if segment_1 }}
+			{{ entries:listing }}	
+			<li class="gallery-block">
+				<div class="thumbnail">
+					<div class="thumbnail-img">
+						<a href="/{{ segment_1 }}/{{ slug }}">
+							<img src="{{ thumbnail_img_src }}" 
+							alt="{{ title }}"/>
+						</a>
+					</div>
+					{{ if !hide_thumbnail_captions }}
+					<div class="thumbnail-caption"><h2><a class="caption-link" href="/{{ segment_1 }}/{{ slug }}">{{ title }}</a></h2></div>
+					{{ endif }}
+				</div>
+			</li>
+			{{ /entries:listing }}
+			{{ else }}
+			{{ entries:listing folder="/selected-work" }}	
+			<li class="gallery-block">
+				<div class="thumbnail">
+					<div class="thumbnail-img">
+						<a href="/selected-work/{{ slug }}"><img src="{{ thumbnail_img_src }}" alt="{{ title }}" /></a>
+					</div>
+					{{ if !hide_thumbnail_captions }}
+					<div class="thumbnail-caption"><h4><a class="caption-link" href="/selected-work/{{ slug }}">{{ title }}</a></h4></div>
+					{{ endif }}
+				</div>
+			</li>
+			{{ /entries:listing }}
+			{{ endif }}			
+		</ul>
+	</div>
+</section>

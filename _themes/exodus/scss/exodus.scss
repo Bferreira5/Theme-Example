@@ -1,0 +1,252 @@
+@import "bourbon", "neat";
+@import "bitters/base";
+
+@import "elements/nav3";
+@import "elements/map";
+@import "elements/flex-box";
+@import "elements/story-page";
+@import "elements/blog-listing";
+@import "elements/article";
+@import "elements/footer";
+
+body{
+	margin: 0; 
+}
+
+.main-wrapper {
+	@include outer-container;
+	padding-top: em(0);
+	@include margin (null null null null);
+
+	section.selected-work-copy {
+		@include span-columns(12);
+		@include margin (null null null null);
+	}
+
+	section.selected-work {
+		@include span-columns(12);
+		padding: 0;
+		margin-left: .2em;
+
+		@include margin (null null null null);
+	}
+
+	section.categories {
+		@include span-columns(12);
+
+		article {
+			@include span-columns(9);
+			@include media($mobile) {
+				@include padding (null null null null);
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+				@include padding (null null null null);
+  				@include span-columns(8);
+			}
+		}
+	}
+
+	section.archive {
+		@include padding(3em);
+	}
+	
+	section.blog-top {
+		@include span-columns(12);
+		@include padding(1em);
+
+	}
+
+	section.flex-listing {
+		@include padding(.5em);	
+	}
+
+	section.blog-style {
+		@include span-columns(12);
+
+		.project-image-blog {
+			@include media($mobile) {
+				@include margin (null null null null);
+			}
+			@include media($blog-colapse) {
+				@include margin (null null null null);
+			}
+		}
+
+		article {
+			@include padding (null null null 4em);
+			@include span-columns(9);
+			@include media($mobile) {
+				@include padding (null 1em null 1em);
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+				@include padding (null 1em null 1em);
+  				@include span-columns(8);
+			}
+		}
+		
+		aside {
+			@include margin(2em null null null);
+			@include span-columns(3);
+			@include omega();
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+			}
+		}
+	}
+	
+	section.project {
+		@include span-columns(12);
+
+		main {
+			@include span-columns(12);
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+			}
+		}
+	}
+
+	section.event {
+		@include span-columns(12);
+		@include padding(0em);
+
+		article {
+			@include span-columns(6 of 12);
+			@include padding (null 2em null 2em);
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+			}
+		}
+
+		aside {
+			@include span-columns(4 of 12);
+			@include omega();
+			@include padding (null 1em null null);
+			@include media($mobile) {
+  				@include span-columns(6);
+  				@include padding (null 2em null 2em);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+  				@include padding (null 2em null 2em);
+			}
+		}
+	}
+
+	section.project-intro {
+		@include span-columns(12);
+
+		main {
+			@include span-columns(8);
+				@include shift(2);
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+  					@include shift(0);
+			}
+		}
+	}
+
+	.pagination {
+		@include span-columns(12);
+		margin-top: 50px;
+		@include margin(2em null 2em null); 
+	}
+
+	section.page-sidebar {
+		@include span-columns(12);
+		@include padding(0em);
+
+		article {
+			@include span-columns(8 of 12);
+			@include padding (null 2em null 2em);
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+			}
+		}
+
+		aside {
+			@include span-columns(4 of 12);
+			@include omega();
+			@include padding (null 1em null null);
+			@include media($mobile) {
+  				@include span-columns(6);
+  				@include padding (null 2em null 2em);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+  				@include padding (null 2em null 2em);
+			}
+		}
+	}
+
+	section.single {
+		@include span-columns(12);
+
+		article {
+			@include span-columns(8 of 12);
+			@include padding (null 2em null 2em);
+			@include media($mobile) {
+  				@include span-columns(6);
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+			}
+		}
+	}
+
+	section.double {
+		@include span-columns(12);
+		@include padding (3em 2em 3em 2em);
+
+		article {
+			@include span-columns(6 of 12);
+			@include padding (null 1em null null);
+			border-right: 1px solid darken($base-border-color, 15%);
+			@include media($mobile) {
+  				@include span-columns(6);
+  				border-bottom: 1px solid darken($base-border-color, 15%);
+  				border-right: none;
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+  				border-bottom: 1px solid darken($base-border-color, 15%);
+  				border-right: none;
+			}
+		}
+
+		aside {
+			@include span-columns(6 of 12);
+			@include padding (null 1em null null);
+			@include media($mobile) {
+  				@include span-columns(6);
+  				border-bottom: 1px solid darken($base-border-color, 15%);
+  				border-right: none;
+			}
+			@include media($blog-colapse) {
+  				@include span-columns(8);
+  				border-bottom: 1px solid darken($base-border-color, 15%);
+  				border-right: none;
+			}
+		}
+	}
+
+	footer {
+		@include span-columns(12);
+	}
+}

@@ -1,0 +1,528 @@
+@mixin grid-item-columns($columns) {
+	width: (100% / 12) * $columns;
+}
+/// Fixed size grids not flex-box
+.grid-items {
+	$grid-items-background: $base-body-color;
+	$grid-item-background: desaturate($base-accent-color, 30); 
+	$grid-item-border-size: 1px;
+	$grid-item-columns: 4;
+	$grid-item-small-columns: 3;
+	$grid-item-big-columns: 8;
+	$grid-item-full-columns: 12;
+	$grid-item-half-columns: 6;
+	$grid-item-tri-columns: 4;
+	$grid-item-height-main: 60em;
+	$grid-item-height-normal: 30em;
+	$grid-item-height: 15em;
+	$grid-item-height-inside: 100%;
+
+	$dark-background: darken($base-body-color, 80);
+
+	@include clearfix;
+		
+	.grid-item {
+		@include transition (all 0.2s ease-in-out);
+		height: $grid-item-height;
+		width: 100%;
+		overflow: hidden;
+		float: left;
+		padding: 0;
+		border-top: $grid-item-border-size  solid $grid-items-background;
+		border-bottom: $grid-item-border-size  solid $grid-items-background;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&.tape {
+			h1, h2, h3 {
+			}
+			.copy-content {
+				p {
+				}
+			}
+			.copy-cta {
+				background: rgba($base-body-color, .93);
+				p {
+				}
+			}		
+		}
+		&.notape {
+			.copy-content {
+				p {
+					background: none;
+				}
+			}
+			.copy-cta {
+				background: none;
+				border: solid $base-body-color;
+				@include directional-property(border, width, 1px 0);
+				@include MQ(M) {
+					@include directional-property(border, width, 1px 1px 0 1px);
+				}
+
+				p {
+				}
+			}	
+		}
+	}
+//////////// style agnostic
+	.grid-item-full {
+		@include grid-item-columns($grid-item-full-columns);
+		height: $grid-item-height-main;
+		.copy-box {
+			&.no-background {background:none;}
+			
+			background: rgba($base-body-color, .93);
+			max-width: em(1200px);
+			
+			@include MQ(S) {
+					@include margin(0 auto);
+					@include padding(4em 2.5em null 2.5em);
+			}
+			@include MQ(M) {
+				@include margin(0 auto);
+				@include padding(6em 6em null 6em);
+			}
+			@include MQ(L) {
+				@include margin(10em auto);
+			}
+
+			
+			.copy-headline {
+				h1, h2, h3 {
+				}
+			}
+
+			.copy-detail {
+				.copy-content {
+
+					p {
+						max-width: em(680px);
+					}
+				}
+				
+				.copy-cta {
+					$comment-image-width: 6em;
+					$comment-image-vert-alignment: middle;
+
+					display: block;
+					@include margin(2em 0 0 0);
+					@include padding(1em 1em);
+					@include MQ(L) {
+						display: table;
+						width: 100%;
+						@include padding(.5em 1em .5em 3em);
+					}
+					.cta-image,
+					.cta-content,
+					.cta-link {
+						display: block;
+
+						@include MQ(L) {
+							display: table-cell;
+							vertical-align: $comment-image-vert-alignment;
+						}
+					}
+					.cta-image {
+						> img {
+							@include margin(auto);
+							display: block;
+							height: auto;
+							max-width: none;
+							@include padding(0 .7em);
+							width: $comment-image-width;
+						}
+					}
+					.cta-content {
+						
+						p {
+							text-align: center;
+							
+							@include MQ(L) {
+								text-align: left;
+								@include padding(1em 3em);
+							}
+						}
+					}
+
+					.cta-link {
+						min-width: 160px;
+					}
+				}
+			}	
+		}
+	}
+//////////// style agnostic
+	.grid-item-over {
+		@include grid-item-columns($grid-item-full-columns);
+		height: $grid-item-height-main;
+	
+		.copy-box {
+			background: rgba($base-body-color, .93);
+			max-width: em(800px);
+			&.no-background {background:none;}
+
+			@include MQ(S) {
+					@include margin(0);
+					@include padding(4em 2.5em 6em 2.5em);
+			}
+			@include MQ(M) {
+				@include margin(0);
+				@include padding(6em 6em 8em 6em);
+				max-height: 100%;
+			}
+			@include MQ(L) {
+				@include margin(0);
+				height: $grid-item-height-main;
+			}
+			.copy-headline {
+				h1, h2, h3 {
+				}
+			}
+			.copy-detail {
+				.copy-content {
+				}
+			}
+			.floating-image {
+				position: relative;
+				width: 1400px;
+				img {
+					position: relative;
+					@include MQ(S) {
+						width: 700px;
+						@include transform(
+							translateX(-810px) 
+							translateY(0px)
+							translateZ(50px) 
+							);	 
+						display: block;
+						float: right;
+						z-index: 2;
+					}
+					@include MQ(M) {
+						width: 1000px;
+						@include transform(
+							translateX(-510px) 
+							translateY(-20px)
+							translateZ(50px) 
+							);		 
+						display: block;
+						float: right;
+						z-index: 2;
+					}
+					@include MQ(L) {
+						width: 1400px;
+						@include transform(
+							translateX(150px) 
+							translateY(0px)
+							translateZ(50px) 
+							);		 
+						display: block;
+						float: right;
+						z-index: 2;
+					}
+				}
+			}	
+		}	
+	}
+//////////// Bar style agnostic
+	.grid-item-bar {
+		@include grid-item-columns($grid-item-full-columns);
+		height: $grid-item-height-normal;
+		.floating-image {
+			position: relative;
+			img {
+				@include MQ(S) {
+					width: 300px;
+					@include transform(
+						translateX(10px) 
+						translateY(-90px)
+						translateZ(50px) 
+						);	 
+					display: block;
+					float: right;
+					z-index: 2;
+				}
+				@include MQ(M) {
+					width: 700px;
+					@include transform(
+						translateX(190px) 
+						translateY(-280px)
+						translateZ(50px) 
+						);		 
+					display: block;
+					float: right;
+					z-index: 2;
+				}
+				@include MQ(L) {
+					width: 960px;
+					@include transform(
+						translateX(225px) 
+						translateY(-735px)
+						translateZ(50px) 
+						);		 
+					display: block;
+					float: right;
+					z-index: 2;
+				}
+			}
+		}
+		.copy-box {			
+			background: rgba($base-body-color, .93);
+			max-width: em(800px);
+			&.no-background { background:none; }
+
+			@include MQ(S) {
+					@include margin(0);
+					@include padding(4em 2.5em 6em 2.5em);
+					height: $grid-item-height-main;
+			}
+			@include MQ(M) {
+				@include margin(0);
+				@include padding(6em 6em 8em 6em);
+				max-height: 100%;
+			}
+			@include MQ(L) {
+				@include margin(0);
+				height: $grid-item-height-main;
+			}
+			.copy-headline {
+				h1, h2, h3 {
+				}
+			}
+			.copy-detail {
+				.copy-content {
+				}
+			}		
+		}
+	}
+//////////// Split style agnostic
+	.grid-item-split {
+		height: $grid-item-height-normal;
+		@include media($large-screen) {
+			@include grid-item-columns($grid-item-full-columns);
+		}
+		.inside-grid-left,
+		.inside-grid-right {
+			
+			.copy-box {
+				@include MQ(S) {
+					@include margin(0);
+					@include padding(4em 2.5em 4em 2.5em);
+					height: 100%;
+				}
+				@include MQ(M) {
+					@include margin(0);
+					@include padding(6em 2.5em null 6em);
+					max-height: 100%;
+				}
+				@include MQ(L) {
+					@include margin(0);
+					@include padding(6em 6em null 6em);
+					
+				}
+				.copy-headline {
+					h1, h2, h3 {
+					}
+				}
+			}
+		}
+		.images-wrapper {
+			background-size: cover;
+			background-position: right; 
+			display: block;
+		}
+		@include MQ(M) {
+			.images-wrapper {
+				background-size: cover;
+				background-position: right; 
+				display: block;
+				min-height: 30em;
+			}
+			.inside-grid-left {
+				@include MQ(S) { 
+					float: left;
+					display: block;
+					width: 50%;
+					margin: 0;
+				}
+				@include MQ(M) { 
+					float: left;
+					display: block;
+					width: 50%;
+					margin: 0;
+				}
+			}
+			.inside-grid-right {
+				@include MQ(M) {
+					float: left;
+					display: block;
+					width: 50%;
+					margin: 0;
+				}
+			}
+		}
+	}
+//////////// Split style agnostic
+	.grid-item-half {
+		@include MQ(S) {
+			height: $grid-item-height-normal*1.4;
+		}
+		@include MQ(M) {
+			height: $grid-item-height-normal*1.1;
+		}
+		@include MQ(L) {
+			height: $grid-item-height-normal;
+			@include grid-item-columns($grid-item-half-columns);
+		}
+		
+		.copy-box {
+			@include padding(4em);
+			@include margin(0);
+			background: rgba($base-body-color, .93);
+
+			@include MQ(S) {
+				height: $grid-item-height-normal*1.4;
+				width: 100%;
+				@include padding(2.5em);
+				@include margin(0);
+			}
+			@include MQ(M) {
+				height: $grid-item-height-normal*1.1;
+				width: $grid-item-height-normal;
+				@include padding(4em);
+				@include margin(0);
+			}
+			@include MQ(L) {
+				height: $grid-item-height-normal;
+				width: $grid-item-height-normal;
+				@include padding(4em);
+				@include margin(0);
+			}
+
+			h1, h2, h3 {
+			}
+			p {
+			}  
+		}
+	}
+
+	.grid-item-tri {
+		display: table;
+		@include MQ(S) {
+			height: $grid-item-height-normal*1.4;
+		}
+		@include MQ(M) {
+			height: $grid-item-height-normal*1.1;
+		}
+		@include MQ(L) {
+			height: $grid-item-height-normal*1.5;
+			@include grid-item-columns($grid-item-tri-columns);
+		}
+		.copy-box {
+			display: table-cell;
+			vertical-align: middle;
+			@include MQ(S) {
+				height: $grid-item-height-normal*1.1;
+				@include padding(2.5em);
+				@include margin(0 auto);
+				p { width: 100% }
+				h1, h2, h3 { text-align: center;
+				}
+			}
+			@include MQ(M) {
+				height: $grid-item-height-normal*1.1;
+				@include padding(2.5em 4em);
+				@include margin(0 auto);
+				p { width: em(560px); }
+				h1, h2, h3 { text-align: left;
+				}
+			}
+			@include MQ(L) {
+				height: $grid-item-height-normal*1.5;
+				@include padding(2.5em 2.5em 2.5em 4em);
+				@include margin(0 auto);
+				p { width: 100%; }
+				h1, h2, h3 { text-align: center;
+				}
+			}
+			img {
+				display: block;
+				height: auto;
+				max-width: none;
+				@include padding(0);
+				@include MQ(S) { 
+					width: em(180px);
+					@include margin(1em auto);
+				}
+				@include MQ(M) { 
+					@include margin(1em 0);
+				}
+				@include MQ(L) { 
+					width: em(260px);
+					@include margin(1em auto);
+				}
+			}
+			.copy-content {
+				@include MQ(S) {
+					p { width: 100% }
+					h1, h2, h3 { text-align: center;
+					}
+				}
+				@include MQ(M) {
+					p { width: em(560px); }
+					h1, h2, h3 { text-align: left;
+					}
+				}
+				@include MQ(L) {
+					p { width: 100%; }
+					h1, h2, h3 { text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+////// style agnostic
+	.grid-item-inside {
+		height: $grid-item-height-inside;
+		
+		.inside {
+			@include margin (1em 1em);
+			
+			h1 {
+				text-align: center;
+			}
+
+			h2 {
+				margin-bottom: .1em;
+				@include margin (null null null null);
+				@include padding (1em null .5em null);
+
+				@include media($medium-screen) {
+					margin-bottom: .2em;
+				}
+			}
+
+			h3 {
+				margin-bottom: .4em;
+				@include margin (null null null null);
+				@include padding (1em null .5em null);
+			}
+
+			p {
+				@include padding (null 1em null 1em);
+
+				&:last-of-type {
+					@include padding (null null 4em null);
+				}
+
+				@include media($large-screen) {
+				  @include margin (null auto null auto);
+				  max-width: 40em;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+<section class="blog-top">
+	<h1><a href="{{ url }}">{{ title}}</a></h1>
+	<ul>
+		{{ taxonomy:listing folder="blog" type="categories" sort_by="name" sort_dir="asc" }}
+			<li>
+				<a href="{{ url }}">{{ name|title }}
+				{{ if has_categories_count }}({{ results }})
+				{{ endif }}
+				</a>
+			</li>
+		{{ /taxonomy:listing }}
+	</ul>
+	{{ if copy_blog_archive }}<p>
+		<a href="/{{ segment_1 }}/{{ blog_archive_url_segment }}">
+		{{ copy_blog_archive }}</a></p>
+	{{ endif }}
+</section>
+
+<section class="flex-listing">
+	{{ entries:listing folder="blog" limit="{ num_blog_posts_per_page }" }}
+		<article class="flex-box">
+			<a href="/blog/{{ slug }}">
+				<img src="{{ thumbnail_img_src }}" alt="{{ title }}" />
+			</a>
+			<div class="over">
+				<h1 class="entry-title"><a href="{{ url }}">{{ title }}</a></h1>
+				<p class="date">{{ date }}</p>
+				{{ excerpt|truncate:100 }}
+				{{ if copy_blog_read_more }}
+					<a href="{{ url }}">{{ copy_blog_read_more }}</a>
+				{{ endif }}
+			</div>
+		</article>
+	{{ /entries:listing }}
+
+	{{ entries:pagination folder="blog" limit="{ num_blog_posts_per_page }" }}
+		{{ if total_pages > 1 }}
+			<div class="pagination">
+				<p>
+					<span class="pagination-left">
+						{{ if previous_page }}
+						<a href="{{ previous_page }}">&larr; {{ copy_prev }}</a>
+						{{ else }}
+						&larr; {{ copy_prev }}
+						{{ endif }}
+					</span>					
+					<span class="pagination-right">
+						{{ if next_page }}
+						<a href="{{ next_page }}">{{ copy_next }} &rarr;</a>
+						{{ else }}
+						{{ copy_next }} &rarr;
+						{{ endif }}
+					</span>
+				</p>
+			</div>
+		{{ endif }}
+	{{ /entries:pagination }}
+</section>

@@ -1,0 +1,157 @@
+title: Project
+hide: yes
+
+fields:
+
+  page_title:
+    type: text
+    display: Page Title in Browser
+    instructions: Optional - override the title used above for SEO purposes
+
+  meta_description:
+    type: text
+    display: Meta Description
+
+  thumbnail_img_src:
+    type: file
+    display: Upload Thumbnail Image
+    instructions: PNG, JPG or GIF sized 328x203
+    allowed: [png, gif, jpg, jpeg]
+    destination: assets/img/projects/thumb/
+    show_thumbnail: true
+    required: true
+
+  hero_image:
+    type: grid
+    display: Hero Image
+    starting_rows: 1
+    fields:
+      hero_img_src:
+        display: Upload Hero Image
+        type: file
+        allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+        destination: assets/img/projects/
+        width: 25%
+      alt_text:
+        display: Caption Text
+        type: text
+        width: 75%
+
+  caption:
+    type: limited
+    limit: 160
+    display: Thumbnail Copy
+    instructions: enter text to limit
+
+  project_content:
+      type: replicator
+      instructions: |
+        Replicate a new set for each piece of content you need.
+
+      sets:
+
+        table_set:
+          display: Table
+          instructions: Add a inline table.
+          fields:
+            inline_table:
+              type: table
+              instructions: Add data here.
+
+        headline_set:
+          display: Large Headline Title
+          instructions: large headline
+          fields:
+            headline:
+              type: text
+              instructions: Headline or section title.
+
+        content_set:
+          display: Content
+          instructions: A basic block of text
+          fields:
+            text:
+              type: markitup
+              display: Text
+              image_dir: assets/img/projects/
+              file_dir: assets/img/projects/
+
+        client_stamp_set:
+          display: Client information
+          instructions: Add the clientele and date project started.
+          fields:
+            job:
+              type: text
+              instructions: Job title.
+            time:
+              type: text
+              instructions: Type a date range (1989-2015).
+            employer:
+              type: text
+              instructions: Company or Person.
+            description:
+              type: textarea
+              height: 140
+              instructions: A short description.
+
+        quote_set:
+          display: Quote
+          instructions: A lovely pullquote
+          fields:
+            quote:
+              type: textarea
+              height: 40
+              instructions: What was said?
+            cite:
+              type: text
+              instructions: Who said it?
+
+        image_set:
+          display: Image
+          instructions: Showcase your adventures in a gallery
+          fields:
+            photo:
+              type: file
+              allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+              destination: assets/img/projects/
+
+        video_set:
+          display: video
+          instructions: 
+          fields:
+            video_provider:
+              display: Video Sources
+              type: select
+              options:
+                youtube: Youtube
+                vimeo: Vimeo 
+            video_link:
+              type: text
+              instructions: Add video src link her
+
+        code_set:
+          display: Code Snippets
+          type: textarea
+          instructions: For embedding videos or whatever else you might need, see sample code here - typeandgrids.com/reference/video.txt
+          fields:
+            code:
+              type: textarea
+              height: 400
+              instructions: to be styled with "code"
+
+  show_caption:
+    type: checkbox
+    display: Display Alt Text As Image Caption?
+    default: 0
+
+  has_back_to_top:
+    type: checkbox
+    display: Display Back to Top Link at Bottom?
+    default: 0
+
+  content:
+    type: hidden    
+
+  _template:
+    type: hidden
+    default: project

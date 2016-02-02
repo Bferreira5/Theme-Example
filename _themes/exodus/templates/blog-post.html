@@ -1,0 +1,48 @@
+<section class="blog-style">
+	{{ if hero_image:0:hero_img_src }}
+		{{ hero_image }}
+			<div class="project-image-blog">
+				<img src="{{ hero_img_src }}" alt="{{ alt_text }}" />
+				{{ if show_caption }} <h6>{{ alt_text }}</h6> {{ endif }}
+			</div>
+		{{ /hero_image }}
+		{{ if insert_hr }}<hr/>{{ endif }}
+	{{ endif }}
+	<article class="blog-article">
+		<div class="header">
+			<h1>{{ title }}</h1>
+			<p class="date">{{ date }}</p>
+			<hr class="long"/>
+		</div>
+		{{ if categories|length > 0 }}
+		<p>{{ get_content from="/blog" }}<strong>{{ copy_blog_tags }}:</strong>{{ /get_content }} {{ categories_url_list }}
+		</p>{{ endif }}
+		
+			{{ theme:partial src="_blog_top" }}
+			{{ content }}
+			{{ theme:partial src="_blog_bottom" }}
+			<p><a href="/{{ segment_1 }}">{{ get_content from="/blog" }}&larr; {{ copy_blog_home }}{{ /get_content }}</a></p>
+	</article>
+	<aside class="blog-sidebar">
+		<div class="related-posts">
+		{{ entries:listing folder="blog" limit="1" conditions="categories:{categories_option_list}, url:not {page_url}" sort_by="random" }}
+		{{ if total_results > 0 }}
+		<h5>{{ get_content from="/blog" }}{{ copy_blog_related_posts }}{{ /get_content }}</h5>
+		{{ endif }}
+		{{ /entries:listing }}
+		<ul>
+			{{ entries:listing folder="blog" limit="3" conditions="categories:{categories_option_list}, url:not {page_url}" sort_by="random" }}
+			{{ if total_results > 0 }}
+			<li><a href="{{ url }}">{{ title }}</a></li>
+			{{ endif }}
+			{{ /entries:listing }}
+		</ul>
+		</div>	
+
+	{{ if has_comments }}
+	<div class="comments">
+		{{ disqus:comments account="{disqus_account_name}" }}
+	</div>
+	{{ endif }}
+	</aside>
+</section>

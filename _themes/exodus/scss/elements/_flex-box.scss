@@ -1,0 +1,70 @@
+.flex-boxes {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  
+  a {
+    text-decoration: none;
+  }  
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $flex-box-border-color: $light-gray;
+  $flex-box-border: 1px solid $flex-box-border-color;
+  $flex-box-background: lighten($light-gray, 10%);
+  $flex-box-gutter: 0.4em;
+  $flex-box-width: 18em;
+  $flex-box-color: white;
+
+    @include clearfix;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(stretch);
+    @include flex-wrap(wrap);
+    clear: both;
+
+  .flex-box {
+    @include transition (all 0.2s ease-in-out);
+    @include flex(2 2 20em);
+    @include align-self(stretch);
+    background: $flex-box-background;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    display: block;
+    margin: $flex-box-gutter;
+    height: 20em;
+
+    .flex-title {
+      width: 100%;
+      height: 100%;
+
+      @include transition (all 0.3s ease-in-out);
+      opacity: 0;
+      &:hover {
+          opacity: 1;
+        }
+
+      h1 {
+        color: white;
+        font-size: 1.2em;
+        font-weight: 800;
+        margin-bottom: 0.5em;
+        padding-right: .7em;
+        
+      }
+
+      p {
+        color: black;
+        background-color: transparentize($flex-box-color, 0.1);
+        margin: auto;
+        padding: .7em;
+      }
+    }
+
+    .flex-box-big {
+      @include flex(1 1 40em);
+    }
+  }
+}

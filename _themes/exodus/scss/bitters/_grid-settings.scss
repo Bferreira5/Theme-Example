@@ -1,0 +1,41 @@
+@import "neat-helpers"; // or "../neat/neat-helpers" when not in Rails
+
+// Neat Overrides
+// $column: 90px;
+// $gutter: 30px;
+// $grid-columns: 12;
+$max-width: em(1920);
+
+// Neat Breakpoints
+///////////////////////////////////////////////////////////////////////////////
+$medium-screen: 60em;
+$large-screen: em(960);
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
+$large-screen-up: new-breakpoint(min-width $large-screen 8);
+
+$mobile: new-breakpoint(max-width em(480) 6);
+$blog-colapse: new-breakpoint(max-width em(1020) 8);
+
+// breakpoints
+   
+$S:     320px;   
+$M:     768px;     
+$L:     1170px;     
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+
+
+

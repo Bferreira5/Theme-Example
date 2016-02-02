@@ -1,0 +1,283 @@
+title: Story Page
+
+fields:
+
+  page_title:
+    type: text
+    display: Page Title in Browser
+    instructions: Optional - override the title used above for SEO purposes
+
+  meta_description:
+    type: text
+    display: Meta Description
+
+  Front_page_stack:
+    type: section
+    display: Story Deck
+    instructions: This page type is designed for visual story telling in modules. Links or images may be used within each.
+
+  front_page_replicator:
+    type: replicator
+    instructions: Replicate a new set for each piece of content you need.
+
+    sets:
+
+      headline_set:
+        display: Section Title
+        instructions: Add a section title.
+        fields:
+          headline:
+            type: text
+            instructions: Headline or section title.
+
+      content_set:
+        display: Content
+        instructions: A basic block of text
+        fields:
+          text:
+            display: Text
+            type: markitup
+
+      grid_left:
+        display: Left Size Grid
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 160
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+
+      grid_right:
+        display: Right Size Grid
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 160
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy            
+
+      grid_full:
+        display: Full Size Grid
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 300
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+          cta-text:
+            type: limited
+            limit: 140
+            instructions: Add a call to action
+          ornament:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/icon/
+            instructions: Add a embelishment with the CTA box
+          ornament_alt:
+            type: text
+            instructions: Alt text for the ornament
+
+      grid_over:
+        display: Full Size Grid with a nice image on the side
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 300
+            instructions: enter text to limit
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+          layered-image:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/icon/
+
+      grid_bar:
+        display: Bar Size Grid
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 300
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+          layered-image:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/icon/
+
+      grid_half:
+        display: Half Size Grid
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 300
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+
+      grid_tri:
+        display: Bar Size Tri
+        instructions: Build out the block.
+        fields:
+          background:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/
+          styled:
+              display: Copy box prestyled select
+              type: select
+              options:
+                tape: Light with boxes
+                notape: Light without boxes
+          ornament:
+            type: file
+            allowed: ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG']
+            destination: assets/img/story/icon/
+            instructions: Add a embelishment with the CTA box
+          ornament_alt:
+            type: text
+            instructions: Alt text for the ornament
+          headline:
+            type: text
+            instructions: Enter a headline
+          description:
+            type: limited
+            limit: 300
+            instructions: enter text to limit
+          link:
+            type: text
+            instructions: enter reletive link
+          linktext:
+            type: text
+            instructions: enter reletive copy
+
+  map:
+    display: Turn on map?
+    instructions: Figure out where the map goes.
+    fields:
+      hide_map:
+        type: checkbox
+        display: Add the map?
+        default: 0
+
+  hide_thumbnail_captions:
+    type: checkbox
+    display: Hide Thumbnail Captions?
+    default: 0
+
+  content:
+    type: hidden
+
+  _template:
+    default: story-page

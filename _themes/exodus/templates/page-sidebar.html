@@ -1,0 +1,129 @@
+<section class="page-sidebar">
+	{{ if hero_image:0:hero_img_src }}
+		{{ hero_image }}
+			<div style="background-image: url('{{ hero_img_src }}')" class="hero">
+				<div class="hero-inner">
+					<div class="hero-copy">
+						<h1>{{ title }}</h1>
+						{{ if show_caption }} 
+							<p>{{ alt_text }}</p> 
+						{{ endif }}
+						{{ if intro }}
+							<p>{{ intro }}</p>
+						{{ endif}}
+					</div>
+				</div>
+			</div>
+		{{ /hero_image }}
+		
+	{{ endif }}
+
+
+	{{ if insert_hr }}<hr/>{{ endif }}
+	
+	<article>
+
+		{{ page_sidebar_replicator }}
+
+			{{ if type == "table_set" }}
+
+				<div class="table-minimal">
+					{{ inline_table|table }}
+				</div>
+
+			{{ elseif type == "content_set" }}
+
+				<div class="text">
+				  {{ text|markdown }}
+				</div>
+
+			{{ elseif type == "headline_set" }}
+
+				<h2>{{ headline }}</h2>
+
+			{{ elseif type == "quote_set" }}
+
+				<setquote>{{ quote }}</setquote>
+				<p>&mdash; {{ cite }}</p>
+
+			{{ elseif type == "resume_set"}}  
+
+			<h3>{{ job }}</h3>
+			<p><em>{{ time }}</em></p>
+			<p><strong>{{ employer }}</strong></p>
+			<p>{{ description }}</p>
+
+
+			{{ elseif type == "image_set" }}
+
+			<figure>
+				<img src="{{ photo }}" alt="{{ caption }}" />
+				<figcaption>{{ caption }}</figcaption>
+			</figure>
+
+			{{ elseif type == "video_set" }}
+				<div class="video">
+					{{ video }}
+				</div>
+			
+			{{ endif }}
+
+		{{ /page_sidebar_replicator }}
+	
+		{{ if has_back_to_top }}
+			<a href="#top"class="back-to-top">Bact to top</a>
+		{{ endif }}
+	</article>
+	
+	<aside>
+
+		{{ aside_replicator }}
+
+			{{ if type == "table_set" }}
+
+				<div class="table-minimal">
+					{{ aside_table|table }}
+				</div>
+
+			{{ elseif type == "content_set" }}
+
+				<div class="text">
+				  {{ text|markdown }}
+				</div>
+
+			{{ elseif type == "headline_set" }}
+
+				<h3>{{ headline }}</h3>
+
+			{{ elseif type == "quote_set" }}
+
+				<setquote>{{ quote }}</setquote>
+				<p>&mdash; {{ cite }}</p>
+
+			{{ elseif type == "resume_set"}}  
+
+			<h3>{{ job }}</h3>
+			<p><em>{{ time }}</em></p>
+			<p><strong>{{ employer }}</strong></p>
+			<p>{{ description }}</p>
+
+
+			{{ elseif type == "image_set" }}
+
+			<figure>
+				<img src="{{ photo }}" alt="{{ caption }}" />
+				<figcaption>{{ caption }}</figcaption>
+			</figure>
+
+			{{ elseif type == "video_set" }}
+				<div class="video">
+					{{ video }}
+				</div>
+			
+			{{ endif }}
+
+		{{ /aside_replicator }}
+	
+		
+	</aside>
+</section>

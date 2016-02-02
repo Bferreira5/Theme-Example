@@ -1,0 +1,36 @@
+hide: yes
+
+fields:
+  
+  copy_site_title:
+    type: text
+    display: Site Title
+    instructions: Site Title in Browser
+  
+  email_address:
+    type: text
+    display: Email Address
+  
+  copy_logo:
+    type: text
+    display: Logo Text
+  
+  copy_tagline:
+    type: text
+    display: Tagline Text
+  
+  copy_lined_list_separator:
+    type: text
+    display: Lined List Separator
+  
+  social_icons:
+    type: textarea
+    display: Footer Social Icons
+    instructions: Reference - typeandgrids.com/reference/social_icons.txt
+  
+  analytics_code:
+    type: textarea
+    display: Analytics Code
+           
+  content:
+    type: hidden

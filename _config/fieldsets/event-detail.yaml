@@ -1,0 +1,199 @@
+hide: true
+
+fields:
+
+  page_title:
+    type: text
+    display: Page Title in Browser
+    instructions: Optional - override the title used above for SEO purposes
+
+  meta_description:
+    type: text
+    display: Meta Description
+
+  time:
+    display: Start Time
+    type: time
+
+  dates:
+    display: Multidate
+    type: multidate
+    mode: inline
+
+  hero_image:
+    type: grid
+    display: Hero Image
+    starting_rows: 1
+    fields:
+      hero_img_src:
+        display: Upload Hero Image
+        type: file
+        destination: assets/img/events
+        width: 25%
+      alt_text:
+        display: Alt Text
+        type: text
+        width: 75%
+
+  opening_song:
+    type: grid
+    display: Opening Song
+    starting_rows: 1
+    fields:
+      project_info_label:
+        display: Hymn Number
+        type: text
+        width: 50%
+      project_info_value:
+        display: Song Title
+        type: text
+        width: 50%
+
+  sabbath_school1:
+    type: text
+    display: Superintendents Remarks
+    instructions: Superintendents Remarks
+
+  sabbath_school2:
+    type: text
+    display: Lessons Study
+    instructions: Enter in lessons study person.
+
+  welcome:
+    type: text
+    display: Welcome
+    instructions: Enter person assigned to podium
+
+  tithes:
+    type: text
+    display: Tithes and Offerings
+    instructions: Enter tithes and offerings
+
+  children_story:
+    type: text
+    display: Children’s Story
+    instructions: Enter Children’s Story
+
+  reading:
+    type: grid
+    display: Scripture Reading
+    starting_rows: 1
+    fields:
+      project_info_label:
+        display: Book
+        type: text
+        width: 50%
+      project_info_value:
+        display: Text
+        type: text
+        width: 50
+
+  music:
+    type: grid
+    display: Special Music
+    starting_rows: 1
+    fields:
+      project_info_label:
+        display: Artist
+        type: text
+        width: 50%
+      project_info_value:
+        display: Song
+        type: text
+        width: 50
+
+  sermon_title:
+    type: text
+    display: Sermon Title
+    instructions: Enter Sermon Title
+
+  sermon_speaker:
+    type: text
+    display: Sermon Speaker
+    instructions: Enter person assigned to podium
+
+  closing_song:
+    type: grid
+    display: Closing Song
+    starting_rows: 1
+    fields:
+      project_info_label:
+        display: Hymn Number
+        type: text
+        width: 50%
+      project_info_value:
+        display: Song Title
+        type: text
+        width: 50%
+
+  announcements_replicator:
+    type: replicator
+    instructions: |
+      Replicate a new set for each piece of content you need.
+
+    sets:
+
+      table_set:
+        display: Table
+        instructions: Add a inline table.
+        fields:
+          title:
+            type: text
+            instructions: Job title.
+          inline_table:
+            type: table
+            instructions: Add data here.
+
+      announcements_set:
+        display: Announcement
+        instructions: Add the corresponding information to the announcement.
+        fields:
+          title:
+            type: text
+            instructions: Job title.
+          date:
+            type: date
+            display: Event Date
+          location:
+            type: text
+            instructions: Add the location.
+          description:
+            type: textarea
+            height: 140
+            instructions: A short description.
+
+      quote_set:
+        display: Quote
+        instructions: A lovely pullquote
+        fields:
+          quote:
+            type: textarea
+            height: 40
+            instructions: What was said?
+          cite:
+            type: text
+            instructions: Who said it?
+
+      image_set:
+        display: Image
+        instructions: Showcase your adventures in a gallery
+        fields:
+          photo:
+            type: file
+            allowed: [png, jpg, gif]
+            destination: assets/img/about/
+          caption:
+            type: text
+            instructions: Describe the 
+
+  raw_html:
+    type: textarea
+    display: Raw HTML
+    instructions: For embedding videos or whatever else you might need, see sample code here - typeandgrids.com/reference/video.txt
+
+  content:
+    type: hidden
+
+  _template:
+    type: hidden
+    default: event-detail

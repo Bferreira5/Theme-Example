@@ -1,0 +1,35 @@
+<h1>Events Overview</h1>
+<ul class="cbp_tmtimeline">
+{{ entries:listing folder='events' limit='4' sort_dir='desc' }}
+	<li>
+		<a href="{{ url }}">
+		<time class="cbp_tmtime" datetime="{{ date }} {{ time }}">
+			<span>
+				
+				{{ multidate dates='{dates}' sort_dir='desc'}}
+
+					{{ dates }}
+
+						{{ value }}
+
+					{{ /dates }}
+
+				{{ /multidate }}
+			</span>
+			<span>{{ time }}</span>
+		</time>
+		
+		<div class="cbp_tmicon cbp_tmicon-phone"></div>
+			<div class="cbp_tmlabel">
+				<h2>{{ title }}</h2>
+				<h3>{{ sermon_title }}</h3>
+				<h4>{{ sermon_speaker }}</h4>
+				<p>Published: {{ datestamp format="d F Y" }}</p>
+			</div>
+		</a>
+	</li>
+{{ /entries:listing }}
+</ul>
+
+	
+

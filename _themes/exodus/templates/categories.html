@@ -1,0 +1,36 @@
+<section class="blog-top">
+	{{ get_content from="/{ segment_1 }" }}
+		<h1><a href="{{ url }}">{{ copy_blog_categories_title }} &ldquo;{{ taxonomy_slug|deslugify|title }}&rdquo;</a></h1>
+	{{ /get_content }}
+	<ul>
+		{{ taxonomy:listing folder="blog" type="categories" sort_by="name" sort_dir="asc" }}
+			<li>
+				<a href="{{ url }}">{{ name|title }}
+				{{ if has_categories_count }}({{ results }})
+				{{ endif }}
+				</a>
+			</li>
+		{{ /taxonomy:listing }}
+	</ul>
+	{{ if copy_blog_archive }}<p>
+		<a href="/{{ segment_1 }}/{{ blog_archive_url_segment }}">
+		{{ copy_blog_archive }}</a></p>
+	{{ endif }}
+</section>
+
+<section class="flex-listing">
+	{{ entries:listing folder="blog" taxonomy="true" }}	
+		<article class="flex-box">
+			<a href="/blog/{{ slug }}">
+				<img src="{{ thumbnail_img_src }}" alt="{{ title }}" />
+			</a>
+			<div class="over">
+				<h1 class="entry-title"><a href="{{ url }}">{{ title }}</a></h1>
+				<p class="date">{{ date }}</p>
+				{{ excerpt|truncate:100  }}
+				{{ if copy_blog_read_more }}
+					<a href="{{ url }}">{{ copy_blog_read_more }}</a>
+				{{ endif }}
+			</div>
+		</article>
+	{{ /entries:listing }}

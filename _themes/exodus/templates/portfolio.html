@@ -1,0 +1,17 @@
+<section>
+	<div class="flex-boxes">
+			{{ if segment_1 }}
+			{{ entries:listing }}
+  				<a href="/{{ segment_1 }}/{{ slug }}" class="flex-box"  style="background-image: url('{{ thumbnail_img_src }}')" >
+	  				<div class="flex-title">
+		    			<h1>{{ title }}</h1>
+						{{ if !hide_thumbnail_captions }}
+							<p>{{ caption }}</p>
+						{{ endif }}
+					</div>
+				</a>
+
+			{{ /entries:listing }}
+			{{ endif }}
+		</div>
+</section>

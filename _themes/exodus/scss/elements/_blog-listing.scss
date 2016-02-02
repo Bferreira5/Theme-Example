@@ -1,0 +1,273 @@
+section.blog-top {
+	@include margin(.5em 1em .5em 1em);
+	
+	h1 {
+		@include margin (null null null null);
+ 		@include padding (null .2em);
+		font-family: $serif-2;
+		line-height: $base-line-height * .7;
+		font-size: $base-font-size * 3; 
+		font-weight: 700;
+
+		a {
+			color: $base-font-color;
+			text-decoration: none;
+
+			&:hover, .is-selected & { 
+				opacity: .7;
+			}
+		}
+
+		@include media($medium-screen) {
+			text-align: left;
+			line-height: $base-line-height * .7;
+			font-size: $base-font-size * 4;
+		}
+	}
+
+	@include padding(.9em 1em); 
+	border-top: 1px solid $light-gray;
+
+
+	ul {
+  		list-style: none;
+  		@include margin (3em null null null);
+ 		@include padding (null);
+ 		li {
+   			display: inline-block;
+   			@include margin (1em 1em 1em null);
+
+   			a {
+		  		color: $base-font-color;
+		  		@include padding (.3em .7em);
+		  		text-decoration: none;
+		  		line-height: $base-line-height * .7;
+				font-size: $base-font-size * 1.4;
+
+		  		&:hover, .is-selected & { 
+		  			background: transparentize($base-font-color, 0.3); 
+		  			color: white; 
+		  		}
+			}
+   		}
+	}
+			
+}
+
+section.flex-listing  {
+	
+	$flex-box-gutter: .5em;
+	$flex-box-width: 25em;
+	$flex-box-color: transparentize($base-font-color, 0.3);
+
+	@include clearfix;
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(stretch);
+	@include flex-wrap(wrap);
+	clear: both;
+
+	article.flex-box {
+		@include transition (all 0.2s ease-in-out);
+		@include flex(3 3 18em);
+		@include align-self(stretch);
+		border-bottom: 1px solid transparentize($base-font-color, .60);
+		background: $base-body-color;
+		display: block;
+		margin: $flex-box-gutter;
+		@include padding(1em null);
+		&:focus,
+		&:hover {
+			opacity: .8;
+			}
+
+		img {
+			display: block;
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+		}
+		
+		&:first-of-type {
+			@include flex(1 1 40em);
+		}
+		
+
+		.over {
+			position: relative;
+			background-color: #fff;
+			width: 90%;
+			margin: -2.5rem auto 0;
+			padding: 1em;
+
+			h1.entry-title {
+				font-family: $serif-2;
+				line-height: $base-line-height * .7;
+				font-size: $base-font-size * 1; 
+				font-weight: 700;
+				margin-bottom: .2em;
+				border-bottom: 1px solid $light-gray;
+
+				@include media($medium-screen) {
+					text-align: left;
+					line-height: $base-line-height * .7;
+					font-size: $base-font-size * 1.6;
+				}
+			}
+
+			h2 {
+				font-family: $serif-2;
+				font-style: italic;
+				line-height: $base-line-height * 1.1;
+				font-size: $base-font-size * 1.2; 
+				font-weight: 400;
+				margin-bottom: .9em;
+
+				@include media($medium-screen) {
+					line-height: $base-line-height * 1.1;
+					font-size: $base-font-size * 1.6; 
+				}
+			}
+
+			h3 {
+				font-family: $serif-2;
+				color: transparentize($base-font-color, .4);
+				font-style: italic;
+				font-size: $base-font-size * 1.4; 
+				line-height: $base-line-height;
+				margin-bottom: .4em;
+			}
+
+			p.date {
+				color: transparentize($base-font-color, .6);
+				font-family: $serif-2;
+				font-style: italic;
+				font-size: $base-font-size * .9; 
+				margin-bottom: .3em;
+			}
+			
+			p.sub {
+				color: transparentize($base-font-color, .4);
+
+				}
+
+			p {
+				line-height: $base-line-height * 1;
+				font-size: $base-font-size * 1; 
+				margin-bottom: .5em;
+				max-width: 35em;
+
+
+				@include media($medium-screen) {
+					font-size: $base-font-size * 1.2;
+				}
+
+				span {
+					font-family: $sans-serif;
+					font-weight: 700;
+					font-size: $base-font-size * .9;
+				}
+			}
+
+			a {
+				display: inline-block;
+				font-family: $sans-serif;
+				color: inherit;
+				font-weight: 700;
+				font-size: $base-font-size * .8; 
+				text-transform: uppercase;
+				position: relative;
+
+			}
+		
+			hr {
+				width: 3em;
+			}
+
+			hr.long {
+				width: 100%;
+			}
+
+			p.author {
+				font-family: $serif-2;
+				font-style: italic;
+			}
+		}
+	}
+
+	.pagination {
+		text-align: center;
+		border-bottom: 1px solid $dark-gray;
+
+		.pagination-left {
+			@include margin(null 1em null null);
+			button {
+				@include button(pill);
+			}
+		}
+		.pagination-right {
+			@include margin(null null null 1em);
+			button {
+				@include button(pill);
+			}	
+		}
+	}
+
+
+	aside.blog-sidebar {
+		@include margin(null null 3em null);
+		@include padding(.9em 1em); 
+		h5 {
+			font-family: $serif-2;
+			color: transparentize($base-font-color, .4);
+			font-size: $base-font-size; 
+			line-height: $base-line-height;
+			margin-bottom: .35em;
+
+		}
+
+		p {
+			@include margin(1em null null null); 
+			font-family: $serif-2;
+			font-style: italic;
+			color: transparentize($base-font-color, .2);
+		}
+
+		ul {
+			background: transparent;
+			
+				li {
+					border: 1px solid $medium-gray;
+					@include border-top-radius(5px);
+					@include border-bottom-radius(5px);
+					@include border-left-radius(5px);
+					@include border-right-radius(5px);
+					margin-bottom: .3em;
+					text-align: left;
+					
+					a {
+						display: block;
+						@include padding(.5em 1em); 
+						color: $medium-gray;
+						border: none;
+
+						&:hover, &:focus {
+							background: transparentize($base-font-color, .95);
+						}
+					}
+				}
+			}
+
+		@include media($medium-screen) {
+
+			h5 {
+				font-family: $serif-2;
+				color: transparentize($base-font-color, .4);
+				font-size: $base-font-size; 
+				line-height: $base-line-height;
+			}
+		}
+	}
+}
+
+
